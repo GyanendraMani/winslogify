@@ -1,0 +1,41 @@
+{
+  "name": "winslogify",
+  "version": "1.0.0",
+  "description": "A logging utility built on top of Winston with additional features",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist --extensions \".js\"",
+    "start": "node dist/index.js",
+    "test": "echo \"No tests yet\"",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Gyaan",
+  "license": "MIT",
+  "dependencies": {
+    "moment-timezone": "^0.5.46",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/winslogify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-repo/winslogify/issues"
+  },
+  "homepage": "https://github.com/your-repo/winslogify#readme",
+  "keywords": [
+    "logging",
+    "winston",
+    "logger",
+    "middleware",
+    "log"
+  ]
+}
