@@ -38,3 +38,11 @@ jobs:
           cp package.json dist/
           cp README.md dist/ || echo "No README.md found."
           cp LICENSE dist/ || echo "No LICENSE found."
+
+      # Step 7: Publish to npm
+      - name: Publish to npm with public access
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm publish dist --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
