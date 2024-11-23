@@ -30,3 +30,11 @@ jobs:
       # Build the package
       - name: Build the package
         run: npm run build
+
+     # Step 5: Copy necessary files to dist/
+      - name: Copy essential files
+        run: |
+          echo "Copying essential files..."
+          cp package.json dist/
+          cp README.md dist/ || echo "No README.md found."
+          cp LICENSE dist/ || echo "No LICENSE found."
