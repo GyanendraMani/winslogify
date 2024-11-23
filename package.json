@@ -1,5 +1,5 @@
 {
-  "name": "winslogify",
+  "name": "@gyanendramani/winslogify",
   "version": "1.0.0",
   "description": "A logging utility built on top of Winston with additional features",
   "main": "dist/index.js",
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-repo/winslogify.git"
+    "url": "https://github.com/GyanendraMani/winslogify"
   },
   "bugs": {
-    "url": "https://github.com/your-repo/winslogify/issues"
+    "url": "https://github.com/GyanendraMani/winslogify/issues"
   },
-  "homepage": "https://github.com/your-repo/winslogify#readme",
+  "homepage": "https://github.com/GyanendraMani/winslogify#readme",
   "keywords": [
     "logging",
     "winston",
