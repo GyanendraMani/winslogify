@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - name: Build the package
         run: npm run build
 
-     # Step 5: Copy necessary files to dist/
+      # Copy necessary files to dist/
       - name: Copy essential files
         run: |
           echo "Copying essential files..."
@@ -39,7 +39,16 @@ jobs:
           cp README.md dist/ || echo "No README.md found."
           cp LICENSE dist/ || echo "No LICENSE found."
 
-      # Step 7: Publish to npm
+      - name: Verify NPM_TOKEN is set
+        run: |
+          if [ -z "${NPM_TOKEN}" ]; then
+            echo "NPM_TOKEN is not set!"
+            exit 1
+          else
+            echo "NPM_TOKEN is set."
+          fi
+
+      # Publish to npm
       - name: Publish to npm with public access
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
