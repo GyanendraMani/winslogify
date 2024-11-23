@@ -1,5 +1,5 @@
 {
-  "name": "@gyanendramani/winslogify",
+  "name": "winslogify",
   "version": "1.0.0",
   "description": "A logging utility built on top of Winston with additional features",
   "main": "dist/index.js",
