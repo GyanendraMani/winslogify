@@ -53,7 +53,7 @@ jobs:
       # Publish to npm
       - name: Publish to npm with public access
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=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" > ~/.npmrc
           npm publish dist --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
