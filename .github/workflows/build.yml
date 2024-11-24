@@ -39,19 +39,21 @@ jobs:
           cp README.md dist/ || echo "No README.md found."
           cp LICENSE dist/ || echo "No LICENSE found."
 
-      - name: Verify NPM_TOKEN is set
+      - name: Debug NPM_TOKEN
         run: |
           if [ -z "${NPM_TOKEN}" ]; then
             echo "NPM_TOKEN is not set!"
             exit 1
           else
-            echo "NPM_TOKEN is set."
+            echo "NPM_TOKEN is available."
           fi
-
-      # Publish to npm
-      - name: Publish to npm with public access
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          npm publish dist --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+       
+      # Publish to npm
+      # - name: Publish to npm with public access
+      #   run: |
+      #     echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      #     npm publish dist --access public
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
