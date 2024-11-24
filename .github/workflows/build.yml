@@ -51,9 +51,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
        
       # Publish to npm
-      # - name: Publish to npm with public access
-      #   run: |
-      #     echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-      #     npm publish dist --access public
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to npm with public access
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm publish dist --access public
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
