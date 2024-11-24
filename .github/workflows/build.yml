@@ -69,6 +69,6 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=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" > ~/.npmrc
           cd winslogify
-          npm publish
+          npm publish --verbose
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
