@@ -35,9 +35,11 @@ jobs:
       - name: Copy essential files
         run: |
           echo "Copying essential files..."
-          cp package.json dist/
-          cp README.md dist/ || echo "No README.md found."
-          cp LICENSE dist/ || echo "No LICENSE found."
+          mkdir winslogify
+          cp package.json winslogify/
+          cp README.md winslogify/ || echo "No README.md found."
+          cp LICENSE winslogify/ || echo "No LICENSE found."
+          mv dist winslogify/ || echo "No dist Dir found."
 
       - name: Debug NPM_TOKEN
         run: |
@@ -54,6 +56,6 @@ jobs:
       - name: Publish to npm with public access
         run: |
           echo "//registry.npmjs.org/:_authToken=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" > ~/.npmrc
-          npm publish dist --access public
+          npm publish winslogify --access public
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
