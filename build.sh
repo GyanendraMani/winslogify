@@ -24,10 +24,32 @@ else
     echo "No build configuration found. Skipping transpilation."
 fi
 
-# Step 4: Copy other necessary files (e.g., package.json, README.md)
+# Copying essential files
 echo "Copying essential files..."
-cp package.json dist/
-cp README.md dist/ || echo "No README.md found."
-cp LICENSE dist/ || echo "No LICENSE found."
+
+# Create the directory for the package
+mkdir -p winslogify
+
+# Copy necessary files to the new directory, handling missing files
+cp package.json winslogify/
+cp README.md winslogify/ || echo "No README.md found."
+cp LICENSE winslogify/ || echo "No LICENSE found."
+
+# Only copy dist if it exists
+if [ -d "dist" ]; then
+    mv dist winslogify/
+else
+    echo "No dist dir found."
+fi
+
+# Change to the winslogify directory
+cd winslogify
+
+# Remove the "scripts" section from package.json using sed
+sed -i '/"scripts": {/ , /}/d' package.json
+
+echo "Essential files copied and 'scripts' section removed from package.json."
+
+
 
 echo "Build completed successfully."
