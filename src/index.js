@@ -28,7 +28,7 @@ class WinsLogify {
     this.logger.logger.debug(message);
   }
 
-  startLog() {
+  startAutoLogger() {
     this.initialLog.createLogger(this.CWD);
   }
 
